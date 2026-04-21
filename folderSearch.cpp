@@ -18,8 +18,7 @@ string generateRandomString(int length)
 {
     // Define the list of possible characters
     const string CHARACTERS
-        = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv"
-          "wxyz0123456789";
+        = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     // Create a random number generator
     random_device rd;
@@ -40,6 +39,13 @@ string generateRandomString(int length)
     return random_string;
 }
 
+void fillVector(vector<string> v, int size, int amount){
+    for(int i = 0; i < amount; i++){
+        v.push_back(generateRandomString(size));
+    }
+    
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -49,13 +55,7 @@ int main(int argc, char const *argv[])
     cin>>stringSize;
     cout<<"Amount of strings per vector (6 vectors): "<<endl;
     cin>>stringAmount;
-    for(int i = 0; i < stringAmount; i++){
-        v1.push_back(generateRandomString(stringSize));
-        v2.push_back(generateRandomString(stringSize));
-        v3.push_back(generateRandomString(stringSize));
-        v4.push_back(generateRandomString(stringSize));
-        v5.push_back(generateRandomString(stringSize));
-        v6.push_back(generateRandomString(stringSize));
-    }
+    fillVector(v1,stringSize,stringAmount);//TODO MORE
+    
     return 0;
 }
